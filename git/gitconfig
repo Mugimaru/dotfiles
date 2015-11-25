@@ -1,0 +1,50 @@
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+  ui = auto
+  pager = true
+
+[merge]
+  summary=true
+
+[alias]
+  b = branch -v
+  r = remote -v
+  t = tag -l
+  cp = cherry-pick -x
+  co = checkout
+  br = branch
+  ci = commit
+  st = status -sb
+  ds = diff --staged
+  amend = commit --amend -C HEAD
+  undo = reset --soft HEAD^
+  unstage = reset HEAD --
+  uncommit = reset --soft HEAD^
+  last = log -1 HEAD
+  up = pull --rebase
+  put = push origin HEAD
+  latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
+  ls = log  --decorate --date=short
+  graph = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+  lb = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+[user]
+  name = n.babushkin
+  email = n.babushkin@fun-box.ru
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[merge]
+  keepBackup = false;
+  tool = p4merge
+[mergetool "p4merge"]
+  cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+  keepTemporaries = false
+  trustExitCode = false
+  keepBackup = false
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
