@@ -3,6 +3,14 @@ export ZSH=$HOME/dotfiles/zsh/oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="mugimaru"
+BULLETTRAIN_PROMPT_ADD_NEWLINE=false
+BULLETTRAIN_TIME_SHOW=false
+BULLETTRAIN_CONTEXT_SHOW=true
+BULLETTRAIN_CONTEXT_BG=white
+BULLETTRAIN_CONTEXT_FG=black
+BULLETTRAIN_CONTEXT_DEFAULT_USER=mugimaru
+BULLETTRAIN_VIRTUALENV_SHOW=false
+BULLETTRAIN_NVM_SHOW=true
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
