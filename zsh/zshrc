@@ -3,6 +3,7 @@ export ZSH=$HOME/dotfiles/zsh/oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="mugimaru"
+
 BULLETTRAIN_PROMPT_ADD_NEWLINE=false
 BULLETTRAIN_TIME_SHOW=false
 BULLETTRAIN_CONTEXT_SHOW=true
@@ -11,6 +12,12 @@ BULLETTRAIN_CONTEXT_FG=black
 BULLETTRAIN_CONTEXT_DEFAULT_USER=mugimaru
 BULLETTRAIN_VIRTUALENV_SHOW=false
 BULLETTRAIN_NVM_SHOW=true
+
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  BULLETTRAIN_NVM_SHOW=false
+  BULLETTRAIN_RUBY_SHOW=false
+  BULLETTRAIN_ELIXIR_SHOW=false
+fi
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -89,6 +96,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias tmux="tmux -2 attach || tmux -2 new"
+z() ssh "$@" -t zsh
 
 eval "$(rbenv init -)"
 [[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
