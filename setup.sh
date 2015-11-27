@@ -1,9 +1,9 @@
 # vim
 ln -sf `pwd`/vim/vimrc ~/.vimrc
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
 
 # tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -sf `pwd`/tmux/tmux.conf ~/.tmux.conf
 
 # zsh
