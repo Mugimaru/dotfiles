@@ -95,6 +95,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# powder
+alias prr="powder restart"
+alias po="powder open"
+
 alias tmux="tmux -2 attach || tmux -2 new"
 z() ssh "$@" -t zsh
 
