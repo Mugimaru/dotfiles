@@ -2,22 +2,7 @@ export ZSH=$HOME/dotfiles/zsh/oh-my-zsh
 
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="mugimaru"
-
-BULLETTRAIN_PROMPT_ADD_NEWLINE=false
-BULLETTRAIN_TIME_SHOW=false
-BULLETTRAIN_CONTEXT_SHOW=true
-BULLETTRAIN_CONTEXT_BG=white
-BULLETTRAIN_CONTEXT_FG=black
-BULLETTRAIN_CONTEXT_DEFAULT_USER=mugimaru
-BULLETTRAIN_VIRTUALENV_SHOW=false
-BULLETTRAIN_NVM_SHOW=true
-
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-  BULLETTRAIN_NVM_SHOW=false
-  BULLETTRAIN_RUBY_SHOW=false
-  BULLETTRAIN_ELIXIR_SHOW=false
-fi
+ZSH_THEME="gnzh"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -65,7 +50,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.rbenv/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.rbenv/bin:$PATH:/$HOME/projects/coursera/algs4/bin:/home/mugimaru/anaconda2/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -99,8 +84,14 @@ source $ZSH/oh-my-zsh.sh
 alias prr="powder restart"
 alias po="powder open"
 
+alias jsonc="json | pygmentize -l json"
+
 alias tmux="tmux -2 attach || tmux -2 new"
 z() ssh "$@" -t zsh
+kerl-use() {
+  . /home/mugimaru/.kerl_releases/$@/activate
+}
 
 eval "$(rbenv init -)"
+kerl-use 18.0
 [[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
