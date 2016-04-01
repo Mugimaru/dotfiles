@@ -27,10 +27,11 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 """"" Filetypes ========================
-
+Plugin 'jvirtanen/vim-octave'
 """"""" Ruby
 Plugin 'vim-ruby/vim-ruby'
 
+Plugin 'aszlig/vimerl'
 """"""" Elixir
 Plugin 'elixir-lang/vim-elixir'
 
