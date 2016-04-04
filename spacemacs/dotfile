@@ -218,6 +218,9 @@ layers configuration. You are free to put any user code."
   (setq diff-hl-side 'left)
   (setq flycheck-disabled-checkers '(ruby-rubocop ruby-jruby))
   (setq ruby-deep-indent-paren nil)
+  (spacemacs/set-leader-keys
+    "w/" 'split-window-right-and-focus
+    "w-" 'split-window-below-and-focus)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
