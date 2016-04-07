@@ -84,6 +84,9 @@ source $ZSH/oh-my-zsh.sh
 alias prr="powder restart"
 alias po="powder open"
 
+# ruby/RoR
+alias prspec="bundle exec rake 'parallel:drop[4]' 'parallel:create[4]' 'parallel:migrate[4]' 'parallel:spec[4]'"
+
 alias jsonc="json | pygmentize -l json"
 
 alias tmux="tmux -2 attach || tmux -2 new"
