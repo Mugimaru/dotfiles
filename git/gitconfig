@@ -30,6 +30,7 @@
   ls = log  --decorate --date=short
   graph = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
   lb = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+  fu = !"git branch --set-upstream-to=origin/\"$(git rev-parse --abbrev-ref HEAD)\""
 [user]
   name = n.babushkin
   email = n.babushkin@fun-box.ru
