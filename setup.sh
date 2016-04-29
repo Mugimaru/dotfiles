@@ -4,6 +4,7 @@ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
 # spacemacs
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 ln -sf `pwd`/spacemacs/dotfile ~/.spacemacs
 
 # tmux
