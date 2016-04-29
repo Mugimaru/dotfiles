@@ -4,6 +4,10 @@ export ZSH=$HOME/dotfiles/zsh/oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="mugimaru"
 
+SPACESHIP_NVM_SHOW=false
+SPACESHIP_RUBY_SHOW=true
+SPACESHIP_VENV_SHOW=false
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
