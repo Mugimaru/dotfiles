@@ -96,10 +96,9 @@ alias jsonc="json | pygmentize -l json"
 
 alias tmux="tmux -2 attach || tmux -2 new"
 z() ssh "$@" -t zsh
+
 kerl-use() {
   . /home/mugimaru/.kerl_releases/$@/activate
 }
 
-eval "$(rbenv init -)"
-kerl-use 18.0
-[[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
+source $HOME/dotfiles/zsh/local.zsh.sh
