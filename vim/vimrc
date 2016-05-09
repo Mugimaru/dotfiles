@@ -112,6 +112,7 @@ Plugin 'sjl/gundo.vim'
 
 """"" UI Plugins =======================
 Plugin 'bling/vim-airline'       " UI statusbar niceties
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
   set laststatus=2               " enable airline even if no splits
   if !exists('g:airline_symbols')
