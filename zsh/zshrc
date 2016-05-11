@@ -2,14 +2,14 @@ export ZSH=$HOME/dotfiles/zsh/oh-my-zsh
 
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="mugimaru"
-
-SPACESHIP_NVM_SHOW=false
-SPACESHIP_VENV_SHOW=false
 
 if [[ -n $SSH_CONNECTION ]]; then
+  ZSH_THEME="mugimaru-remote" # spaceships
+  SPACESHIP_NVM_SHOW=false
+  SPACESHIP_VENV_SHOW=false
   SPACESHIP_RUBY_SHOW=false
 else
+  ZSH_THEME="mugimaru-local" # bullettrain
   SPACESHIP_RUBY_SHOW=true
 fi
 
