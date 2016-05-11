@@ -6,10 +6,6 @@ ln -sf $DOTFILES/vim/vimrc ~/.vimrc
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
-# spacemacs
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-ln -sf $DOTFILES/spacemacs/dotfile ~/.spacemacs
-
 # tmux
 ln -sf $DOTFILES/tmux/tmux.conf ~/.tmux.conf
 
