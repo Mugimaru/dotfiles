@@ -1,8 +1,6 @@
-# Ruby
-eval "$(rbenv init -)"
+# rbenv
+# eval "$(rbenv init -)"
 
-# Elixir
-[[ -s "$HOME/.kiex/scripts/kiex" ]] && source "$HOME/.kiex/scripts/kiex"
-
-# Erlang
-kerl-use 18.0
+# asdf
+#. $HOME/.asdf/asdf.sh
+#. $HOME/.asdf/completions/asdf.bash
