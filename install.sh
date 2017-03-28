@@ -9,6 +9,7 @@ script "asdf"      "n"
 script "spacemacs" "n"
 script "git"       "y"
 script "tmux"      "y"
+script "vim"       "y"
 script "oh-my-zsh" "y"
 
 # Collect answers
@@ -22,7 +23,7 @@ done
 # Perform install
 for key in $(map_keys $scriptsMap); do
   if [ $(map_get $scriptsMap $key) = "y" ]; then
-    printf "\n-> Installing %s:\n" $key 
+    printf "\n-> Installing %s:\n" $key
     source $SCRIPTS/$key.sh
   fi
 done
