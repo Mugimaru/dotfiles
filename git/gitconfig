@@ -28,6 +28,10 @@
   put = push origin HEAD
   latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
   ls = log  --decorate --date=short
+  lg = log --pretty=format:\"%h %Cblue%ar %Cgreen%an%Creset: %Cred%d\"
+  lf = log --name-status --pretty=format:\"%h %Cblue%ar %Cgreen%an%Creset: %s %Cred%d\"
+  ll = log -10 --pretty=format:\"%h %Cblue%ar %Cgreen%an%Creset: %s %Cred%d\"
+  gr = log --graph --pretty=format:\"%Cred%h %Cblue%ar%Creset %Cgreen%an%Creset %s %Cred%d\"
   graph = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
   lb = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
   fu = !"git branch --set-upstream-to=origin/\"$(git rev-parse --abbrev-ref HEAD)\""
