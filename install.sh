@@ -10,7 +10,7 @@ script "spacemacs" "n"
 script "git"       "y"
 script "tmux"      "y"
 script "vim"       "y"
-script "oh-my-zsh" "y"
+script "zsh"       "y"
 
 # Collect answers
 for key in $(map_keys $scriptsMap); do
