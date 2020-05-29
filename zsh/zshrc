@@ -40,6 +40,11 @@ zplug supercrabtree/k
 # A Zsh plugin to help remembering those shell aliases and Git aliases you once defined.
 zplug djui/alias-tips
 
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl
+zplug plugins/kubectl, from:oh-my-zsh
+
+zplug jonmosco/kube-ps1
+
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
@@ -49,6 +54,11 @@ fi
 
 # zplug load --verbose
 zplug load
+
+# jonmosco/kube-ps1
+source "$ZPLUG_HOME/repos/jonmosco/kube-ps1/kube-ps1.sh"
+PROMPT='$(kube_ps1)'$PROMPT
+kubeoff
 
 alias tmux="tmux -2 attach || tmux -2 new"
 z() ssh "$@" -t zsh
