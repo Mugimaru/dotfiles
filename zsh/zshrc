@@ -40,6 +40,11 @@ zplug supercrabtree/k
 # A Zsh plugin to help remembering those shell aliases and Git aliases you once defined.
 zplug djui/alias-tips
 
+# https://github.com/zsh-users/zsh-history-substring-search
+zplug  zsh-users/zsh-history-substring-search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl
 zplug plugins/kubectl, from:oh-my-zsh
 
@@ -63,6 +68,10 @@ kubeoff
 alias tmux="tmux -2 attach || tmux -2 new"
 z() ssh "$@" -t zsh
 alias lzd='lazydocker'
+
+h() {
+    cat $HISTFILE | fzf --query="$@"
+}
 
 source $DOTFILES/zsh/local.zsh.sh
 
