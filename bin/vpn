@@ -1,0 +1,31 @@
+#!/bin/bash
+
+start() {
+  eval $(op signin my)
+
+  local _host _credentials _username _pwd
+
+  _host=${1:-webvpn.funbox.io}
+  _vpn_credentials=$(op get item funbox-vpn)
+
+  _username=$(echo ${_vpn_credentials} | jq -r '.details.fields[] | select(.designation=="username").value' )
+  _pwd=$(echo ${_vpn_credentials} | jq -r '.details.fields[] | select(.designation=="password").value' )
+
+  echo ${_pwd} | sudo openconnect ${_host} --background --quiet --user=${_username} --passwd-on-stdin &> /dev/null
+}
+
+fixDNS() {
+  echo 'nameserver 192.168.0.1' | sudo tee -a /etc/resolv.conf
+}
+
+stop() {
+  sudo pkill -SIGTERM -f openconnect > /dev/null
+}
+
+restart() {
+  stopVPN
+  startVPN
+}
+
+
+eval "$@"

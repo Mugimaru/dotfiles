@@ -1,5 +1,6 @@
 # zmodload zsh/zprof
 export DOTFILES=$HOME/dotfiles
+export PATH=$PATH:$DOTFILES/bin
 
 # zsh history
 export HISTFILE=~/.zsh_history
