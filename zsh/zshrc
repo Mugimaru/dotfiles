@@ -7,16 +7,16 @@ export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTCONTROL=ignoredups
-setopt append_history # Don't overwrite, append!
-setopt INC_APPEND_HISTORY # Write after each command
+setopt append_history         # Don't overwrite, append!
+setopt INC_APPEND_HISTORY     # Write after each command
 setopt hist_expire_dups_first # Expire duplicate entries first when trimming history.
-setopt hist_fcntl_lock # use OS file locking
-setopt hist_ignore_all_dups # Delete old recorded entry if new entry is a duplicate.
-setopt hist_lex_words # better word splitting, but more CPU heavy
-setopt hist_reduce_blanks # Remove superfluous blanks before recording entry.
-setopt hist_save_no_dups # Don't write duplicate entries in the history file.
-setopt share_history # share history between multiple shells
-setopt HIST_IGNORE_SPACE # Don't record an entry starting with a space.
+setopt hist_fcntl_lock        # use OS file locking
+setopt hist_ignore_all_dups   # Delete old recorded entry if new entry is a duplicate.
+setopt hist_lex_words         # better word splitting, but more CPU heavy
+setopt hist_reduce_blanks     # Remove superfluous blanks before recording entry.
+setopt hist_save_no_dups      # Don't write duplicate entries in the history file.
+setopt share_history          # share history between multiple shells
+setopt HIST_IGNORE_SPACE      # Don't record an entry starting with a space.
 
 # alt + left/right
 bindkey "^[[1;3C" forward-word
@@ -42,7 +42,7 @@ zplug supercrabtree/k
 zplug djui/alias-tips
 
 # https://github.com/zsh-users/zsh-history-substring-search
-zplug  zsh-users/zsh-history-substring-search
+zplug zsh-users/zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
@@ -54,9 +54,13 @@ zplug jonmosco/kube-ps1
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
-        echo; zplug install
+        echo
+        zplug install
     fi
 fi
+
+# This prints commands with aliases expanded whenever you use an alias at the command line.
+zplug brymck/print-alias
 
 # zplug load --verbose
 zplug load
@@ -69,6 +73,7 @@ kubeoff
 alias tmux="tmux -2 attach || tmux -2 new"
 z() ssh "$@" -t zsh
 alias lzd='lazydocker'
+alias lzdd='lazydocker -f docker-compose.dev.yml'
 
 h() {
     cat $HISTFILE | fzf --query="$@"
@@ -77,3 +82,23 @@ h() {
 source $DOTFILES/zsh/local.zsh.sh
 
 # zprof
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+startVPN() {
+    security find-generic-password -a $USER -s funbox-vpn -w | sudo openconnect "webvpn.funbox.io" --user="n.babushkin" --passwd-on-stdin --background
+}
+
+stopVPN() {
+    sudo pkill -SIGTERM -f openconnect >/dev/null
+}
+
+restartVPN() {
+    stopVPN
+    startVPN
+}
+
+vpn() {
+    restartVPN
+}
+
+export LC_ALL='en_US.UTF-8'
