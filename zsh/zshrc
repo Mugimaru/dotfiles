@@ -84,21 +84,4 @@ source $DOTFILES/zsh/local.zsh.sh
 # zprof
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-startVPN() {
-    security find-generic-password -a $USER -s funbox-vpn -w | sudo openconnect "webvpn.funbox.io" --user="n.babushkin" --passwd-on-stdin --background
-}
-
-stopVPN() {
-    sudo pkill -SIGTERM -f openconnect >/dev/null
-}
-
-restartVPN() {
-    stopVPN
-    startVPN
-}
-
-vpn() {
-    restartVPN
-}
-
 export LC_ALL='en_US.UTF-8'
