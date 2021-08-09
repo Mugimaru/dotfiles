@@ -35,21 +35,24 @@
   graph = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
   lb = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'
   fu = !"git branch --set-upstream-to=origin/\"$(git rev-parse --abbrev-ref HEAD)\""
+	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
 [user]
   name = n.babushkin
   email = n.babushkin@fun-box.ru
 [core]
-	editor = vim
-	excludesfile = ~/.gitignore
+  editor = vim
+  excludesfile = ~/.gitignore
 [merge]
-  keepBackup = false;
-  tool = p4merge
-[mergetool "p4merge"]
-  cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
-  keepTemporaries = false
-  trustExitCode = false
-  keepBackup = false
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
 [filter "media"]
 	required = true
 	clean = git media clean %f
 	smudge = git media smudge %f
+[http "https://pkg.re"]
+	followRedirects = true
