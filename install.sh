@@ -4,13 +4,11 @@ SCRIPTS=$DOTFILES/install
 source $DOTFILES/install/_helpers.sh
 
 # script "filename" "defaultAnswer"
-script "fonts"     "n"
-script "asdf"      "n"
-script "spacemacs" "n"
-script "git"       "y"
-script "tmux"      "y"
-script "vim"       "y"
-script "zsh"       "y"
+script "fonts" "n"
+script "asdf" "n"
+script "git" "y"
+script "tmux" "y"
+script "zsh" "y"
 
 # Collect answers
 for key in $(map_keys $scriptsMap); do
@@ -21,6 +19,7 @@ for key in $(map_keys $scriptsMap); do
 done
 
 # Perform install
+source $SCRIPTS/dotconfig.sh
 for key in $(map_keys $scriptsMap); do
   if [ $(map_get $scriptsMap $key) = "y" ]; then
     printf "\n-> Installing %s:\n" $key

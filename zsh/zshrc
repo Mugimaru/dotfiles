@@ -79,9 +79,9 @@ h() {
     cat $HISTFILE | fzf --query="$@"
 }
 
-source $DOTFILES/zsh/local.zsh.sh
-
 # zprof
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export LC_ALL='en_US.UTF-8'
+
+alias ycs3='aws s3 --endpoint-url=https://storage.yandexcloud.net'
+source $DOTFILES/zsh/local.zsh.sh

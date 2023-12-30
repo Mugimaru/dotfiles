@@ -37,11 +37,12 @@
   fu = !"git branch --set-upstream-to=origin/\"$(git rev-parse --abbrev-ref HEAD)\""
 	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
 [user]
-  name = n.babushkin
-  email = n.babushkin@fun-box.ru
+  name = babushkin.ns
+  email = nikita.babushkin@sbermarket.ru
 [core]
   editor = vim
   excludesfile = ~/.gitignore
+	hookspath = /home/mugimaru/.git_settings/hooks
 [merge]
 	tool = vscode
 [mergetool "vscode"]
@@ -56,3 +57,5 @@
 	smudge = git media smudge %f
 [http "https://pkg.re"]
 	followRedirects = true
+[url "git@gitlab.sbmt.io:"]
+	insteadOf = https://gitlab.sbmt.io
