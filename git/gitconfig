@@ -38,11 +38,11 @@
 	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f"
 [user]
   name = babushkin.ns
-  email = nikita.babushkin@sbermarket.ru
+	email = nbabushkin@ptsecurity.com
+	signingkey = 0xBE1312F8
 [core]
   editor = vim
   excludesfile = ~/.gitignore
-	hookspath = /home/mugimaru/.git_settings/hooks
 [merge]
 	tool = vscode
 [mergetool "vscode"]
@@ -59,3 +59,7 @@
 	followRedirects = true
 [url "git@gitlab.sbmt.io:"]
 	insteadOf = https://gitlab.sbmt.io
+[commit]
+	gpgsign = true
+[gpg]
+	format = x509
