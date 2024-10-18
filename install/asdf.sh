@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ln -s $DOTFILES/asdf/dotfile $HOME/.asdfrc
+ln -sf $DOTFILES/asdf/dotfile $HOME/.asdfrc
 
 git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.14.1
 git clone https://github.com/zplug/zplug $DOTFILES/zsh/zplug
